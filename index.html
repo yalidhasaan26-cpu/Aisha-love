@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Aisha ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3,#ff4d6d);
+}
+
+.card {
+  width: 90%;
+  max-width: 430px;
+  padding: 40px 20px;
+  text-align: center;
+  background: rgba(255,255,255,.93);
+  border-radius: 25px;
+  box-shadow: 0 10px 40px #8b123b55;
+  z-index: 2;
+}
+
+.heart {
+  font-size: 75px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.2); }
+}
+
+h1 {
+  color: #ff3366;
+  margin: 15px 0;
+  font-size: 36px;
+}
+
+p {
+  color: #7d2948;
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 15px 0;
+}
+
+button {
+  border: none;
+  padding: 13px 28px;
+  border-radius: 30px;
+  font-size: 17px;
+  cursor: pointer;
+  margin: 10px 5px;
+  transition: .3s;
+}
+
+.yes {
+  background: #ff3366;
+  color: white;
+}
+
+.no {
+  background: #eee;
+  color: #555;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+#result {
+  color: #ff3366;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.floating {
+  position: absolute;
+  bottom: -30px;
+  animation: floatUp 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="heart">❤️</div>
+
+  <h1>Dear Aisha</h1>
+
+  <p>
+    You are a special person.<br>
+    I have something to ask you...
+  </p>
+
+  <h2 style="color:#ff3366;">
+    Will You Be Mine? 💍
+  </h2>
+
+  <p>
+    A little smile from you can make
+    someone's day brighter. 🌹
+  </p>
+
+  <button class="yes" onclick="sayYes()">
+    YES ❤️
+  </button>
+
+  <button class="no" onclick="sayNo()">
+    NO 💔
+  </button>
+
+  <div id="result"></div>
+</div>
+
+<script>
+function sayYes() {
+  document.getElementById("result").innerHTML =
+  "Thank you, Aisha! ❤️🌹";
+
+  for(let i=0; i<30; i++) {
+    createHeart();
+  }
+}
+
+function sayNo() {
+  document.getElementById("result").innerHTML =
+  "No worries! Your happiness matters. 💗";
+}
+
+function createHeart() {
+  let heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.className = "floating";
+
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = "25px";
+  heart.style.animationDuration =
+  (3 + Math.random()*4) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(),7000);
+}
+
+setInterval(createHeart,500);
+</script>
+
+</body>
+</html>
